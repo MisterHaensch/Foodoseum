@@ -1,9 +1,15 @@
 <h1>new item</h1>
-
-    <%= form_for(@item) do |f| %>
-        <%= f.label :title, "Title:" %>
-        <%= f.text_field :title %>
-        <%= f.label :description, "Description:" %>
-        <%= f.text_field :description %>
-        <%= f.submit "Submit", :class => "btn" %>
-    <% end %> 
+    
+        <%= form_for(@item) do |f| %>
+            <div class="form-group">
+                <%= f.label :title, "Title:" %>            
+                <%= f.text_field :title, class: "form-control" %>
+            </div>
+            <div class="form-group">
+                <%= f.label :description, "Description:" %>
+                <%= f.text_area :description, class: "form-control" %>
+            </div>
+                <%= f.submit "Submit", class: "btn btn-primary" %>
+        <% end %>    
+    
+   
