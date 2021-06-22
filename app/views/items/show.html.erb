@@ -1,8 +1,13 @@
 <h2><%= @item.title %></h2>
 <p> <%= @item.description %> </p>
 
-
-<%= link_to "Back", root_path %>
-<%= link_to "Edit", edit_item_path(@item) %>
-<%= link_to "Delete", item_path(@item), method: :delete, data: {
-    confirm: "Are you sure?" } %>
+<div class="links btn-group">
+    <% if user_signed_in?%>
+        <% if @item.user_id == current_user.id %>
+            <%= link_to "Back", root_path %>
+            <%= link_to "Edit", edit_item_path(@item) %>
+            <%= link_to "Delete", item_path(@item), method: :delete, data: {
+                confirm: "Are you sure?" } %>
+        <% end %>
+    <% end %>    
+</div>
