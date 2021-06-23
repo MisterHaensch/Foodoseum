@@ -3,7 +3,12 @@ class ItemsController < ApplicationController
     #übersetzt: hiermit wird sichergestellt, dass die action nur von show, edit, update und destroy benutzt werden dürfen.
 
     def index
-        @items = Item.all.order("created_at DESC")
+        if params[:category].blank?
+            @items = Item.all.order("created_at DESC")
+        else
+            @category_id = Category.find_by(name: params[:category]).id
+            @items = Item.where(:category_id => @category_id).order("created_at DESC")
+        end
     end
 
     def show        
@@ -31,7 +36,7 @@ class ItemsController < ApplicationController
 
     def update
         @item.category_id = params[:category_id]
-        
+
         if @item.update(item_params)
             redirect_to item_path(@item)
         else
