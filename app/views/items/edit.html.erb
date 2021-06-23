@@ -1,7 +1,8 @@
 <h1>edit item</h1>
     
-        <%= form_for(@item) do |f| %>
+        <%= form_for @item, :html => { :multipart => true } do |f| %>
             <div class="form-group">
+                <%= f.select :category_id, @categories,{} ,{:class => "form-control"} %>
                 <%= f.label :title, "Title:" %>            
                 <%= f.text_field :title, class: "form-control" %>
             </div>
