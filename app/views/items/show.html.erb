@@ -1,10 +1,12 @@
 <h2><%= @item.title %></h2>
 <h4> <%= @item.category.name%> </h4>
 <p> <%= @item.description %> </p>
+<%= image_tag(@item.image) %>
 
 <div class="links btn-group">
     <% if user_signed_in?%>
         <% if @item.user_id == current_user.id %>
+
             <%= link_to "Back", root_path %>
             <%= link_to "Edit", edit_item_path(@item) %>
             <%= link_to "Delete", item_path(@item), method: :delete, data: {
