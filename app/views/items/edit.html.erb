@@ -2,6 +2,9 @@
     
         <%= form_for @item, :html => { :multipart => true } do |f| %>
             <div class="form-group">
+                <%= f.label :image %>
+                <%= f.file_field :image, name: @item.image.filename %>
+                <%= @item.image.filename %>
                 <%= f.select :category_id, @categories,{} ,{:class => "form-control"} %>
                 <%= f.label :title, "Title:" %>            
                 <%= f.text_field :title, class: "form-control" %>
