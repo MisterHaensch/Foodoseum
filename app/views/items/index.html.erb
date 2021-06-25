@@ -3,12 +3,14 @@
 <% if @items.count == 0 %>
     <h3>There are no items in this category</h3>
 <% else %>
+    <div class="row">
     <% @items.each do |item| %>
-    <div><%= link_to image_tag(item.image), item_path(item) %></div>
-    
-    <h2> <%= link_to item.title, item_path(item) %> </h2>
-
+    <div class="col-sm-4" style="border: 1px solid black">
+        <div><%= link_to image_tag(item.image, height: 200, width: 200), item_path(item) %></div>    
+        <h4> <%= link_to item.title, item_path(item) %> </h4>
+    </div>   
     <% end %>
+    </div>
 <% end %>
 
 

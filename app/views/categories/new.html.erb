@@ -1,0 +1,12 @@
+<h1>new category</h1>
+    
+        <%= form_for(@categories) do |f| %>
+            <div class="form-group">
+                
+                <%= f.label :name, "New Category:" %>            
+                <%= f.text_field :name, class: "form-control" %>
+            </div>
+            
+                <%= f.submit "Submit", class: "btn btn-primary" %>
+        <% end %>    
+    
