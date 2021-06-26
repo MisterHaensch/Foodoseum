@@ -1,9 +1,16 @@
-<% @all_items.each do |item, elemente| %>
-        <p> <%= item %></p>
-        
-            <p><%= elemente %></p>
+<% @all_items.each do |item, elemente| %>        
+    <div class="row">
+    <h2><%= item %> </h2>           
         <% elemente.each do |ele| %>
-            <p> <%= ele['title'] %> </p>
+            <div class="col-sm-4" style="border: 1px solid black">
+                <p><%= ele['title'] %> </p>            
+                <%= link_to image_tag(ele.image), item_path(ele)%>
+            </div>    
         <% end %>
         
 <% end %>
+
+
+
+        
+        
