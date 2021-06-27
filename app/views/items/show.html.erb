@@ -1,17 +1,44 @@
-<h2><%= @item.title %></h2>
-<h4> <%= @item.category.name%> </h4>
-<p> <%= @item.description %> </p>
-<p> <%= @item.rating %> </p>
-<%= image_tag(@item.image) %>
-
-<div class="links btn-group">
-    <% if user_signed_in?%>
-        <% if @item.user_id == current_user.id %>
-
-            <%= link_to "Back", root_path %>
-            <%= link_to "Edit", edit_item_path(@item) %>
-            <%= link_to "Delete", item_path(@item), method: :delete, data: {
-                confirm: "Are you sure?" } %>
+<div class="one-item">
+    <h2><%= @item.title %></h2>
+    
+    
+    <% temp = 0%>
+    <% (0...5).each do |i| %>
+        <% if  @item.rating == nil %>
+        <% temp = 0%>
+        <% else %>
+        <% temp = @item.rating %>
         <% end %>
-    <% end %>    
+        <% if i < temp %>                    
+            <%= image_tag("star-on.png")%>
+        <% else %>
+            <%= image_tag("star-off.png")%>
+        <% end %>                     
+    <% end  %>
+    <p> <%= %> </p>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                <%= image_tag(@item.image) %>
+            </div>
+            <div class="col-sm ingredients">
+                <h4>Ingredients</h4>
+                <p> <%= @item.description %> </p>
+                <% if user_signed_in?%>
+                <%# if @item.user_id == current_user.id %>
+
+                    <%= button_to "Back", root_path, :method => :get, class: 'btn btn-secondary button_small_custom' %>
+                    <%= button_to "Edit", edit_item_path(@item), :method => :get, class: 'btn btn-warning button_small_custom' %>
+                    <%= button_to "Delete", item_path(@item),class: 'btn btn-danger button_small_custom', method: :delete, data: {
+                        confirm: "Are you sure?" } %>
+                <%# end %>
+                <% end %>    
+            </div>        
+        </div>
+    </div>
+    
+    
+    
+        
+    
 </div>

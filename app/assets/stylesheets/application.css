@@ -13,3 +13,81 @@
  *= require_tree .
  *= require_self
  */
+.one-item{
+    border: 1px solid ghostwhite;
+    border-radius: 10px;
+    padding: 40px;
+    
+    
+    -webkit-box-shadow: 6px 7px 14px -2px rgba(179, 179, 179, 0.78); 
+    box-shadow: 6px 7px 14px -2px rgba(179, 179, 179, 0.78);
+
+}
+ .item {
+    border: 1px solid ghostwhite;
+    border-radius: 10px;
+    margin: 20px;
+    height: 350px;
+    
+    text-align: center;
+    -webkit-box-shadow: 6px 7px 14px -2px rgba(179, 179, 179, 0.78); 
+    box-shadow: 6px 7px 14px -2px rgba(179, 179, 179, 0.78);
+    transition: all 250ms;
+ }
+
+ .item:hover{
+    transform: translateY(-10px);
+    -webkit-box-shadow: 6px 14px 14px -2px rgba(179, 179, 179, 0.78); 
+    box-shadow: 6px 14px 14px -2px rgba(179, 179, 179, 0.78);
+ }
+
+
+ .item_img img{
+     height: 200px;
+     margin-top: 20px;
+ }
+
+ .item-title{
+     margin-top: 40px;
+     margin-left: 20px;
+ }
+
+.navbar{
+    -webkit-box-shadow: 6px 7px 14px -2px rgba(179, 179, 179, 0.78); 
+    box-shadow: 6px 7px 14px -2px rgba(179, 179, 179, 0.78);
+
+}
+
+.ingredients{
+    padding-top: 20px;
+    padding-right: 40px;
+}
+
+.button_to{
+    margin-top: 90px;
+    display: inline;
+}
+
+.button_small_custom{
+    width: 100px;
+}
+
+
+
+.new-item, .sign-up, .log-in{
+    
+    padding: 50px;
+    border-radius: 10px;
+    border: 1px solid ghostwhite;
+    -webkit-box-shadow: 6px 7px 14px -2px rgba(179, 179, 179, 0.78); 
+    box-shadow: 6px 7px 14px -2px rgba(179, 179, 179, 0.78);
+}
+
+.form-group{
+    padding:10px;
+}
+
+.new-button-custom{
+    margin-left: 10px;
+    margin-top: 10px;
+}

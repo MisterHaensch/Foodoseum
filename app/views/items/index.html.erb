@@ -1,14 +1,38 @@
 <% @all_items.each do |item, elemente| %>        
     <div class="row">
-    <h2><%= item %> </h2>           
+    <h2 class="item-title"><%= item %> </h2>           
         <% elemente.each do |ele| %>
-            <div class="col-sm-4" style="border: 1px solid black">
-                <p><%= ele['title'] %> </p>            
-                <%= link_to image_tag(ele.image), item_path(ele)%>
+            <div class="col-sm col-md-6 col-lg-4 cards">
+                <div class="item">
+                    <%= link_to image_tag(ele.image), item_path(ele), class: "item_img"%>
+                    <div>
+                    
+                        <% (0...5).each do |i| %>
+                            <% if ele['rating'] == nil %>
+                            <% temp = 0%>
+                            <% else %>
+                            <% temp = ele['rating'] %>
+                            <% end %>
+                            <% if i < temp %>                    
+                                <%= image_tag("star-on.png")%>
+                            <% else %>
+                                <%= image_tag("star-off.png")%>
+                            <% end %>                     
+                        <% end  %>
+                    </div>
+                    <p><%= ele['title'] %></p>
+                    <%= button_to "More Information", item_path(ele), :method => :get , class: "btn btn-primary" %>
+                    
+                
+                
+                </div>
+
+                
             </div>    
         <% end %>
         
 <% end %>
+
 
 
 
